@@ -26,12 +26,12 @@ export default function TrustPage() {
             <FadeInWhenVisible>
               <SectionLabel>Trust Layer</SectionLabel>
               <h1 className="text-display-xl text-bone mb-6">
-                Bukan janji.{" "}
-                <span className="text-gradient-aurum">Bukti.</span>
+                Not promises.{" "}
+                <span className="text-gradient-aurum">Proof.</span>
               </h1>
               <p className="text-body-lg max-w-2xl">
-                Setiap aset, setiap keputusan, setiap detik — tercatat on-chain
-                dan dapat diverifikasi siapa saja.
+                Every asset, every decision, every second — recorded on-chain and
+                verifiable by anyone.
               </p>
             </FadeInWhenVisible>
           </div>
@@ -43,19 +43,19 @@ export default function TrustPage() {
             <FadeInWhenVisible>
               <SectionLabel>Proof-of-Reserve</SectionLabel>
               <h2 className="text-display-md text-bone mb-6">
-                Cadangan{" "}
-                <span className="text-gradient-signal">real-time</span>
+                Real-time{" "}
+                <span className="text-gradient-signal">reserves</span>
               </h2>
               <p className="text-body-lg mb-6">
-                Rasio cadangan diverifikasi setiap blok melalui oracle Chainlink.
-                Rasio di bawah 100% memicu auto-proteksi oleh Risk Sentinel.
+                Reserve ratio is verified every block through Chainlink oracles.
+                A ratio below 100% triggers automatic protection by Risk Sentinel.
               </p>
               <div className="space-y-3 mb-8">
                 {[
-                  "Oracle Chainlink untuk harga dan cadangan",
-                  "Verifikasi setiap 12 detik (per blok)",
-                  "Auto-proteksi saat rasio < 100%",
-                  "Dashboard publik yang bisa diakses siapa saja",
+                  "Chainlink oracles for price and reserve data",
+                  "Verification every 12 seconds (per block)",
+                  "Auto-protection when ratio < 100%",
+                  "Public dashboard accessible to everyone",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-body">
                     <Check size={16} className="text-verdant mt-1 shrink-0" />
@@ -94,15 +94,15 @@ export default function TrustPage() {
           <FadeInWhenVisible className="text-center mb-16">
             <SectionLabel>Audits & Security</SectionLabel>
             <h2 className="text-display-md text-bone">
-              Diperiksa oleh{" "}
-              <span className="text-gradient-aurum">terbaik</span>
+              Reviewed by the{" "}
+              <span className="text-gradient-aurum">best</span>
             </h2>
           </FadeInWhenVisible>
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { name: "CertiK", type: "Smart Contract Audit", status: "Completed", date: "Q1 2026", desc: "Audit menyeluruh terhadap vault, governance, dan agent interaction contracts." },
-              { name: "OpenZeppelin", type: "Security Review", status: "Completed", date: "Q1 2026", desc: "Review keamanan fokus pada access control, reentrancy, dan upgrade mechanisms." },
+              { name: "CertiK", type: "Smart Contract Audit", status: "Completed", date: "Q1 2026", desc: "Comprehensive audit of vault, governance, and agent interaction contracts." },
+              { name: "OpenZeppelin", type: "Security Review", status: "Completed", date: "Q1 2026", desc: "Security review focused on access control, reentrancy, and upgrade mechanisms." },
             ].map((audit, i) => (
               <FadeInWhenVisible key={audit.name} delay={i * 0.1}>
                 <GlassCard hover>
@@ -119,7 +119,7 @@ export default function TrustPage() {
                   <div className="flex items-center justify-between pt-4 border-t border-border-primary">
                     <span className="text-mono-sm text-muted">{audit.date}</span>
                     <a href="#" className="text-mono-sm text-aurum hover:underline inline-flex items-center gap-1">
-                      Lihat Laporan <ExternalLink size={12} />
+                      View Report <ExternalLink size={12} />
                     </a>
                   </div>
                 </GlassCard>
@@ -133,16 +133,16 @@ export default function TrustPage() {
           <FadeInWhenVisible className="text-center mb-16">
             <SectionLabel>Custody & Compliance</SectionLabel>
             <h2 className="text-display-md text-bone">
-              Aset disimpan oleh{" "}
-              <span className="text-gradient-signal">kustodian teregulasi</span>
+              Assets held by{" "}
+              <span className="text-gradient-signal">regulated custodians</span>
             </h2>
           </FadeInWhenVisible>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: "Anchorage Digital", role: "Primary Custodian", desc: "Bank kripto teregulasi OCC, menyimpan Treasury dan tokenized securities." },
-              { name: "Circle", role: "Stablecoin Custody", desc: "USDC reserves dan settlement infrastructure." },
-              { name: "Fireblocks", role: "Operational Security", desc: "MPC-based key management untuk operational transactions." },
+              { name: "Anchorage Digital", role: "Primary Custodian", desc: "OCC-regulated crypto bank holding Treasuries and tokenized securities." },
+              { name: "Circle", role: "Stablecoin Custody", desc: "USDC reserves and settlement infrastructure." },
+              { name: "Fireblocks", role: "Operational Security", desc: "MPC-based key management for operational transactions." },
             ].map((c, i) => (
               <FadeInWhenVisible key={c.name} delay={i * 0.1}>
                 <GlassCard hover className="text-center">
@@ -162,18 +162,18 @@ export default function TrustPage() {
           <div className="container-auren text-center">
             <FadeInWhenVisible>
               <h2 className="text-display-md text-bone mb-4">
-                Transparan dari awal hingga akhir
+                Transparent from start to finish
               </h2>
               <p className="text-body-lg max-w-xl mx-auto mb-8">
-                Verifikasi sendiri. Semua data tersedia on-chain.
+                Verify yourself. All data is available on-chain.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <GlowButton size="lg" href="#">
-                  Verifikasi On-Chain
+                  Verify On-Chain
                   <ArrowRight size={18} />
                 </GlowButton>
                 <OutlineButton href="/docs">
-                  Dokumentasi
+                  Documentation
                 </OutlineButton>
               </div>
             </FadeInWhenVisible>

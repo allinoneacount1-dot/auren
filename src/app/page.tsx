@@ -9,14 +9,12 @@ import {
   OutlineButton,
   GlassCard,
   LiveVaultCard,
-  AgentLogStream,
   ProofBadge,
   StatItem,
   StewardCard,
   AssetTile,
   TrustItem,
   PageSection,
-  LiveCounter,
 } from "@/components/ui";
 import { Navbar, Footer } from "@/components/layout";
 
@@ -71,31 +69,31 @@ function HeroSection() {
 
             <FadeInWhenVisible delay={0.1}>
               <h1 className="text-display-xl text-bone">
-                Uang seharusnya
+                Money should
                 <br />
-                <span className="text-gradient-aurum">bekerja.</span>
+                <span className="text-gradient-aurum">work.</span>
                 <br />
-                Sekarang ia{" "}
-                <span className="text-gradient-signal">berpikir.</span>
+                Now it{" "}
+                <span className="text-gradient-signal">thinks.</span>
               </h1>
             </FadeInWhenVisible>
 
             <FadeInWhenVisible delay={0.2}>
               <p className="text-body-lg max-w-xl">
-                AUREN menempatkan agen AI otonom untuk mengelola aset dunia nyata
-                yang ditokenisasi — Treasury, kredit privat, properti — 24/7,
-                on-chain, dapat dibuktikan.
+                AUREN deploys autonomous AI agents to manage tokenized
+                real-world assets — Treasuries, private credit, real estate —
+                24/7, on-chain, provable.
               </p>
             </FadeInWhenVisible>
 
             <FadeInWhenVisible delay={0.3}>
               <div className="flex flex-wrap gap-4">
-                <GlowButton size="lg" href="#cta">
-                  Buka Vault
+                <GlowButton size="lg" href="/dashboard">
+                  Open Vault
                   <ArrowRight size={18} />
                 </GlowButton>
                 <OutlineButton href="#how-it-works">
-                  Lihat agen bekerja
+                  See agents work
                   <Eye size={18} />
                 </OutlineButton>
               </div>
@@ -162,32 +160,31 @@ function ProblemSection() {
           <FadeInWhenVisible>
             <SectionLabel>The Problem</SectionLabel>
             <h2 className="text-display-md text-bone mb-6">
-              Dua dunia.
+              Two worlds.
               <br />
-              <span className="text-clay">Satu jurang.</span>
+              <span className="text-clay">One gap.</span>
             </h2>
             <p className="text-body-lg">
-              DeFi menjanjikan imbal hasil tanpa fondasi. TradFi punya fondasi
-              tanpa kecepatan. Di tengah, uang hanya menunggu.
+              DeFi promises yield without foundation. TradFi has foundation
+              without speed. In between, money just waits.
             </p>
           </FadeInWhenVisible>
         </div>
 
         <div className="lg:col-span-7">
-          <div className="grid grid-cols-2 gap-4">
-            {/* DeFi side */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FadeInWhenVisible delay={0.1}>
               <GlassCard className="h-full border-red-500/10">
                 <div className="text-label text-ember mb-4">DeFi</div>
                 <h3 className="text-heading-2 text-bone mb-3">
-                  Yield tanpa fondasi
+                  Yield without foundation
                 </h3>
                 <ul className="space-y-3">
                   {[
-                    "Imbal hasil dari inflasi token",
-                    "Smart contract risk tanpa jaminan",
-                    "Liquidity bergantung pada sentimen",
-                    "Tidak ada aset nyata di balik",
+                    "Returns from token inflation",
+                    "Smart contract risk without collateral",
+                    "Liquidity depends on sentiment",
+                    "No real assets behind it",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-body-sm">
                       <span className="text-ember mt-0.5">✕</span>
@@ -198,19 +195,18 @@ function ProblemSection() {
               </GlassCard>
             </FadeInWhenVisible>
 
-            {/* TradFi side */}
             <FadeInWhenVisible delay={0.2}>
               <GlassCard className="h-full border-aurum/10">
                 <div className="text-label text-aurum mb-4">TradFi</div>
                 <h3 className="text-heading-2 text-bone mb-3">
-                  Fondasi tanpa kecepatan
+                  Foundation without speed
                 </h3>
                 <ul className="space-y-3">
                   {[
-                    "Aset nyata tapi tidak likuid",
-                    "Manajemen manual, biaya tinggi",
-                    "Akses terbatas, gatekeeping",
-                    "Settlement hari hingga minggu",
+                    "Real assets but illiquid",
+                    "Manual management, high costs",
+                    "Limited access, gatekeeping",
+                    "Settlement in days to weeks",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-body-sm">
                       <span className="text-aurum mt-0.5">✕</span>
@@ -222,13 +218,12 @@ function ProblemSection() {
             </FadeInWhenVisible>
           </div>
 
-          {/* Bridge */}
           <FadeInWhenVisible delay={0.3}>
             <div className="mt-6 text-center">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-signal/20 bg-signal/5">
                 <Zap size={16} className="text-signal" />
                 <span className="text-body text-signal font-medium">
-                  AUREN menjembatani keduanya — dengan agen yang tak pernah tidur
+                  AUREN bridges both — with agents that never sleep
                 </span>
               </div>
             </div>
@@ -248,9 +243,9 @@ function ThesisSection() {
     {
       icon: "🏛",
       title: "RWA",
-      subtitle: "Fondasi Nyata",
+      subtitle: "Real Foundation",
       description:
-        "Aset dunia nyata — Treasury, kredit privat, properti, komoditas — ditokenisasi dan dikelola on-chain. Setiap token punya dasar yang bisa disentuh.",
+        "Real-world assets — Treasuries, private credit, real estate, commodities — tokenized and managed on-chain. Every token has a tangible backing.",
       color: "aurum",
       stats: [
         { label: "Asset Classes", value: "4" },
@@ -260,9 +255,9 @@ function ThesisSection() {
     {
       icon: "🧠",
       title: "Agents",
-      subtitle: "Kecerdasan Otonom",
+      subtitle: "Autonomous Intelligence",
       description:
-        "Stewards — agen AI yang mengalokasikan, me-rebalance, dan menjaga portofolio 24/7. Setiap keputusan tercatat dan dapat diaudit.",
+        "Stewards — AI agents that allocate, rebalance, and guard portfolios 24/7. Every decision is recorded and auditable.",
       color: "signal",
       stats: [
         { label: "Active Agents", value: "4" },
@@ -272,9 +267,9 @@ function ThesisSection() {
     {
       icon: "🔎",
       title: "Proof",
-      subtitle: "Kepercayaan Verifiable",
+      subtitle: "Verifiable Trust",
       description:
-        "Proof-of-reserve real-time, audit kontrak publik, jejak keputusan agen yang bisa ditelusuri. Bukan janji — bukti.",
+        "Real-time proof-of-reserve, public contract audit, traceable agent decision trail. Not promises — proof.",
       color: "verdant",
       stats: [
         { label: "Reserve Ratio", value: "100.2%" },
@@ -286,14 +281,14 @@ function ThesisSection() {
   return (
     <PageSection id="thesis" className="bg-surface-0/30">
       <FadeInWhenVisible className="text-center mb-16">
-        <SectionLabel>Arsitektur AUREN</SectionLabel>
+        <SectionLabel>AUREN Architecture</SectionLabel>
         <h2 className="text-display-md text-bone mb-4">
-          Tiga lapisan yang{" "}
-          <span className="text-gradient-aurum">menyatu</span>
+          Three layers that{" "}
+          <span className="text-gradient-aurum">unite</span>
         </h2>
         <p className="text-body-lg max-w-2xl mx-auto">
-          Bukan sekadar tokenisasi aset. Bukan sekadar agen AI. Bukan sekadar
-          bukti. Tiga lapisan ini bekerja bersama — secara otonom.
+          Not just asset tokenization. Not just AI agents. Not just proof.
+          These three layers work together — autonomously.
         </p>
       </FadeInWhenVisible>
 
@@ -341,7 +336,7 @@ function StewardsSection() {
       name: "Allocator",
       role: "Capital Deployment",
       description:
-        "Menganalisis yield, likuiditas, dan korelasi aset untuk menentukan alokasi optimal. Beroperasi dalam risk limits yang ditetapkan kontrak.",
+        "Analyzes yield, liquidity, and asset correlation to determine optimal allocation. Operates within risk limits set by contract.",
       icon: "🎯",
       status: "active" as const,
     },
@@ -349,15 +344,15 @@ function StewardsSection() {
       name: "Risk Sentinel",
       role: "Threat Detection",
       description:
-        "Memantau drawdown, eksposur, dan anomali pasar secara real-time. Memicu proteksi otomatis saat threshold terlampaui.",
+        "Monitors drawdown, exposure, and market anomalies in real-time. Triggers automatic protection when thresholds are breached.",
       icon: "🛡",
       status: "monitoring" as const,
     },
     {
       name: "Rebalancer",
       role: "Portfolio Maintenance",
-        description:
-        "Menjaga alokasi tetap on-target. Auto-rebalance saat drift melebihi threshold, dengan optimasi biaya gas dan slippage.",
+      description:
+        "Keeps allocation on-target. Auto-rebalances when drift exceeds threshold, with gas and slippage optimization.",
       icon: "⚖",
       status: "executing" as const,
     },
@@ -365,7 +360,7 @@ function StewardsSection() {
       name: "Auditor",
       role: "Verification & Compliance",
       description:
-        "Memverifikasi proof-of-reserve, mengeksekusi audit on-chain, dan mencatat jejak keputusan untuk transparansi publik.",
+        "Verifies proof-of-reserve, executes on-chain audits, and records decision trails for public transparency.",
       icon: "🔎",
       status: "active" as const,
     },
@@ -378,26 +373,26 @@ function StewardsSection() {
           <FadeInWhenVisible>
             <SectionLabel>The Stewards</SectionLabel>
             <h2 className="text-display-md text-bone mb-6">
-              Agen yang{" "}
-              <span className="text-gradient-signal">menjaga</span>
+              Agents that{" "}
+              <span className="text-gradient-signal">guard</span>
             </h2>
             <p className="text-body-lg mb-6">
-              Empat agen AI otonom — masing-masing dengan spesialisasi — bekerja
-              bersama mengelola portofolio AUREN 24/7. Setiap keputusan tercatat
-              on-chain.
+              Four autonomous AI agents — each with a specialization — work
+              together to manage AUREN portfolios 24/7. Every decision is
+              recorded on-chain.
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-body-sm">
                 <span className="w-2 h-2 rounded-full bg-verdant" />
-                <span className="text-clay">Agen mengusulkan</span>
+                <span className="text-clay">Agents propose</span>
               </div>
               <div className="flex items-center gap-3 text-body-sm">
                 <span className="w-2 h-2 rounded-full bg-aurum" />
-                <span className="text-clay">Kontrak menegakkan batas</span>
+                <span className="text-clay">Contracts enforce limits</span>
               </div>
               <div className="flex items-center gap-3 text-body-sm">
                 <span className="w-2 h-2 rounded-full bg-signal" />
-                <span className="text-clay">Jejak tercatat on-chain</span>
+                <span className="text-clay">Trail recorded on-chain</span>
               </div>
             </div>
           </FadeInWhenVisible>
@@ -474,12 +469,12 @@ function AssetsSection() {
       <FadeInWhenVisible className="text-center mb-16">
         <SectionLabel>Asset Classes</SectionLabel>
         <h2 className="text-display-md text-bone mb-4">
-          Aset nyata,{" "}
-          <span className="text-gradient-aurum">yield nyata</span>
+          Real assets,{" "}
+          <span className="text-gradient-aurum">real yield</span>
         </h2>
         <p className="text-body-lg max-w-2xl mx-auto">
-          Setiap kelas aset dipilih berdasarkan profil yield, risiko, dan
-          korelasi. Dikelola oleh Stewards secara otonom.
+          Each asset class is selected based on yield profile, risk, and
+          correlation. Managed autonomously by Stewards.
         </p>
       </FadeInWhenVisible>
 
@@ -492,7 +487,7 @@ function AssetsSection() {
       <FadeInWhenVisible delay={0.4}>
         <div className="text-center mt-10">
           <OutlineButton href="/assets">
-            Lihat semua aset
+            View all assets
             <ChevronRight size={16} />
           </OutlineButton>
         </div>
@@ -515,15 +510,15 @@ function ManifestoSection() {
         <FadeInWhenVisible className="max-w-4xl mx-auto text-center">
           <SectionLabel>Manifesto</SectionLabel>
           <blockquote className="text-display-lg text-bone leading-tight mb-8">
-            &ldquo;Uang dirancang untuk bekerja.
+            &ldquo;Money was designed to work.
             <br />
-            Tapi selama ini ia hanya{" "}
-            <span className="text-gradient-aurum">menunggu</span>.&rdquo;
+            But until now it has only been{" "}
+            <span className="text-gradient-aurum">waiting</span>.&rdquo;
           </blockquote>
           <p className="text-body-lg max-w-2xl mx-auto">
-            AUREN membuat modal berpikir: agen yang tak pernah tidur, menjaga
-            aset nyata, dan membuktikan setiap langkahnya. Ini bukan sekadar
-            DeFi. Ini evolusi berikutnya dari manajemen aset.
+            AUREN makes capital think: agents that never sleep, guarding real
+            assets, proving every step. This is not just DeFi. This is the
+            next evolution of asset management.
           </p>
         </FadeInWhenVisible>
       </div>
@@ -545,23 +540,23 @@ function CTASection() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-aurum/[0.06] rounded-full blur-[80px]" />
 
             <div className="relative z-10">
-              <SectionLabel>Mulai dengan AUREN</SectionLabel>
+              <SectionLabel>Get Started</SectionLabel>
               <h2 className="text-display-md text-bone mb-4">
-                Modal yang{" "}
-                <span className="text-gradient-aurum">bekerja untukmu</span>
+                Capital that{" "}
+                <span className="text-gradient-aurum">works for you</span>
               </h2>
               <p className="text-body-lg max-w-xl mx-auto mb-10">
-                Buka vault, deposit aset, dan biarkan Stewards mengelola
-                portofolionya. Transparan. Otonom. Dapat dibuktikan.
+                Open a vault, deposit assets, and let Stewards manage the
+                portfolio. Transparent. Autonomous. Provable.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4">
-                <GlowButton size="lg" href="#">
-                  Buka Vault Sekarang
+                <GlowButton size="lg" href="/dashboard">
+                  Open Vault Now
                   <ArrowRight size={18} />
                 </GlowButton>
-                <OutlineButton href="#">
-                  Baca Dokumentasi
+                <OutlineButton href="/docs">
+                  Read Documentation
                   <ExternalLink size={16} />
                 </OutlineButton>
               </div>

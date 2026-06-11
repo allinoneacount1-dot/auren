@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { GlowButton, ProofBadge } from "./ui";
+import { CommandPalette } from "./command-palette";
 
 const navLinks = [
   { label: "Protocol", href: "/protocol" },
@@ -43,11 +44,12 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* CTA + Mobile Toggle */}
+          {/* CTA + Search + Mobile Toggle */}
           <div className="flex items-center gap-3">
+            <CommandPalette />
             <div className="hidden md:block">
-              <GlowButton size="sm" href="#cta">
-                Buka Vault
+              <GlowButton size="sm" href="/dashboard">
+                Open Vault
               </GlowButton>
             </div>
             <button
@@ -82,8 +84,8 @@ export function Navbar() {
                 </a>
               ))}
               <div className="pt-3 px-4">
-                <GlowButton href="#cta" className="w-full">
-                  Buka Vault
+                <GlowButton href="/dashboard" className="w-full">
+                  Open Vault
                 </GlowButton>
               </div>
             </div>
@@ -108,20 +110,25 @@ export function Footer() {
               <span className="text-heading-3 text-bone">AUREN</span>
             </div>
             <p className="text-body-sm mb-4">
-              Modal otonom untuk aset dunia nyata.
+              Autonomous capital for real-world assets.
             </p>
             <div className="flex items-center gap-2">
-              <ProofBadgeMini />
+              <ProtocolStatusBadge />
             </div>
           </div>
 
           <div>
             <h4 className="text-label text-muted mb-4">Protocol</h4>
             <ul className="space-y-2">
-              {["How it Works", "The Vault", "Proof Layer", "Governance"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-body-sm hover:text-aurum transition-colors">
-                    {item}
+              {[
+                { label: "How it Works", href: "/protocol" },
+                { label: "The Vault", href: "/protocol#vault" },
+                { label: "Proof Layer", href: "/trust" },
+                { label: "Governance", href: "/governance" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} className="text-body-sm hover:text-aurum transition-colors">
+                    {item.label}
                   </a>
                 </li>
               ))}
@@ -131,10 +138,15 @@ export function Footer() {
           <div>
             <h4 className="text-label text-muted mb-4">Assets</h4>
             <ul className="space-y-2">
-              {["Treasuries", "Private Credit", "Real Estate", "Commodities"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-body-sm hover:text-aurum transition-colors">
-                    {item}
+              {[
+                { label: "Treasuries", href: "/assets#treasuries" },
+                { label: "Private Credit", href: "/assets#credit" },
+                { label: "Real Estate", href: "/assets#real-estate" },
+                { label: "Commodities", href: "/assets#commodities" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} className="text-body-sm hover:text-aurum transition-colors">
+                    {item.label}
                   </a>
                 </li>
               ))}
@@ -144,10 +156,15 @@ export function Footer() {
           <div>
             <h4 className="text-label text-muted mb-4">Company</h4>
             <ul className="space-y-2">
-              {["Manifesto", "About", "Careers", "Legal"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-body-sm hover:text-aurum transition-colors">
-                    {item}
+              {[
+                { label: "Manifesto", href: "/about" },
+                { label: "About", href: "/about" },
+                { label: "Careers", href: "/careers" },
+                { label: "Legal", href: "/legal" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} className="text-body-sm hover:text-aurum transition-colors">
+                    {item.label}
                   </a>
                 </li>
               ))}
@@ -161,7 +178,6 @@ export function Footer() {
             © 2026 AUREN Protocol. All rights reserved.
           </span>
           <div className="flex items-center gap-4">
-            {/* Social links as text for now */}
             {["Twitter", "GitHub", "Discord"].map((s) => (
               <a
                 key={s}
@@ -178,7 +194,7 @@ export function Footer() {
   );
 }
 
-function ProofBadgeMini() {
+function ProtocolStatusBadge() {
   return (
     <span className="inline-flex items-center gap-1.5 text-mono-sm text-verdant">
       <span className="w-1.5 h-1.5 rounded-full bg-verdant animate-pulse-glow" />

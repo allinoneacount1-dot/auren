@@ -2,29 +2,19 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Shield, Eye, Zap, ChevronRight, ExternalLink, Check, Lock, Globe, BarChart3, FileText, Users, TrendingUp } from "lucide-react";
+import { ArrowRight, Shield, Zap, ChevronRight, ExternalLink, Check, Code, Server, Eye, Lock } from "lucide-react";
 import { Navbar, Footer } from "@/components/layout";
-import { SectionLabel, GlowButton, OutlineButton, GlassCard, PageSection, ProofBadge } from "@/components/ui";
+import { SectionLabel, GlowButton, OutlineButton, GlassCard, PageSection } from "@/components/ui";
 
 function FadeInWhenVisible({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 24 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-      transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] as const }}
-      className={className}
-    >
+    <motion.div ref={ref} initial={{ opacity: 0, y: 24 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }} transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] as const }} className={className}>
       {children}
     </motion.div>
   );
 }
-
-/* ═══════════════════════════════════════════
-   PROTOCOL PAGE
-   ═══════════════════════════════════════════ */
 
 export default function ProtocolPage() {
   return (
@@ -37,13 +27,13 @@ export default function ProtocolPage() {
             <FadeInWhenVisible>
               <SectionLabel>Protocol</SectionLabel>
               <h1 className="text-display-xl text-bone mb-6">
-                Cara kerja{" "}
-                <span className="text-gradient-aurum">AUREN</span>
+                How{" "}
+                <span className="text-gradient-aurum">AUREN</span>{" "}
+                works
               </h1>
               <p className="text-body-lg max-w-2xl">
-                Arsitektur berlapis yang menghubungkan agen AI otonom dengan
-                aset dunia nyata — secara on-chain, transparan, dan dapat
-                dibuktikan.
+                A layered architecture connecting autonomous AI agents with
+                real-world assets — on-chain, transparent, and provable.
               </p>
             </FadeInWhenVisible>
           </div>
@@ -54,17 +44,17 @@ export default function ProtocolPage() {
           <FadeInWhenVisible className="text-center mb-16">
             <SectionLabel>How It Works</SectionLabel>
             <h2 className="text-display-md text-bone">
-              Dari deposit hingga{" "}
+              From deposit to{" "}
               <span className="text-gradient-signal">yield</span>
             </h2>
           </FadeInWhenVisible>
 
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { step: "01", title: "Deposit", desc: "Setor aset ke Vault AUREN melalui antarmuka web atau smart contract.", icon: "💰" },
-              { step: "02", title: "Allocate", desc: "Allocator agen menganalisis dan menentukan alokasi optimal ke kelas aset RWA.", icon: "🎯" },
-              { step: "03", title: "Manage", desc: "Stewards memantau, me-rebalance, dan menjaga portofolio 24/7 secara otonom.", icon: "⚙" },
-              { step: "04", title: "Prove", desc: "Setiap keputusan tercatat on-chain. Proof-of-reserve diverifikasi real-time.", icon: "🔎" },
+              { step: "01", title: "Deposit", desc: "Deposit assets into the AUREN Vault through the interface or smart contract.", icon: "💰" },
+              { step: "02", title: "Allocate", desc: "Allocator agent analyzes and determines optimal allocation across RWA classes.", icon: "🎯" },
+              { step: "03", title: "Manage", desc: "Stewards monitor, rebalance, and guard the portfolio 24/7 autonomously.", icon: "⚙" },
+              { step: "04", title: "Prove", desc: "Every decision is recorded on-chain. Proof-of-reserve verified in real-time.", icon: "🔎" },
             ].map((item, i) => (
               <FadeInWhenVisible key={item.step} delay={i * 0.1}>
                 <GlassCard hover className="relative">
@@ -79,7 +69,7 @@ export default function ProtocolPage() {
         </PageSection>
 
         {/* The Vault */}
-        <PageSection>
+        <PageSection id="vault">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <FadeInWhenVisible>
               <SectionLabel>The Vault</SectionLabel>
@@ -88,8 +78,8 @@ export default function ProtocolPage() {
                 <span className="text-gradient-aurum">Protocol</span>
               </h2>
               <p className="text-body-lg mb-6">
-                Setiap vault AUREN mengikuti standar ERC-4626 — yield-bearing token
-                yang komposabel, transparan, dan dapat diaudit.
+                Every AUREN vault follows the ERC-4626 standard — yield-bearing
+                tokens that are composable, transparent, and auditable.
               </p>
               <ul className="space-y-3 mb-8">
                 {[
@@ -106,7 +96,7 @@ export default function ProtocolPage() {
                 ))}
               </ul>
               <GlowButton href="/docs">
-                Baca Spesifikasi Teknis
+                Read Technical Specs
                 <ArrowRight size={16} />
               </GlowButton>
             </FadeInWhenVisible>
@@ -152,20 +142,20 @@ export default function ProtocolPage() {
           <FadeInWhenVisible className="text-center mb-16">
             <SectionLabel>Proof Layer</SectionLabel>
             <h2 className="text-display-md text-bone mb-4">
-              Kepercayaan{" "}
-              <span className="text-gradient-signal">verifiable</span>
+              Verifiable{" "}
+              <span className="text-gradient-signal">trust</span>
             </h2>
             <p className="text-body-lg max-w-2xl mx-auto">
-              Bukan janji. Bukti. Setiap aset, setiap keputusan, setiap detik
-              — tercatat dan dapat diverifikasi.
+              Not promises. Proof. Every asset, every decision, every second
+              — recorded and verifiable.
             </p>
           </FadeInWhenVisible>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: "Proof-of-Reserve", desc: "Verifikasi cadangan aset secara real-time melalui oracle Chainlink. Rasio 100%+ setiap saat.", icon: <Shield size={24} />, color: "text-verdant" },
-              { title: "Audit Trail", desc: "Setiap keputusan agen — alokasi, rebalance, proteksi — tercatat on-chain dan dapat ditelusuri.", icon: <Eye size={24} />, color: "text-signal" },
-              { title: "Custodian Verification", desc: "Kustodian teregulasi memverifikasi kepemilikan aset fisik secara berkala.", icon: <Lock size={24} />, color: "text-aurum" },
+              { title: "Proof-of-Reserve", desc: "Real-time asset reserve verification through Chainlink oracles. 100%+ ratio at all times.", icon: <Shield size={24} />, color: "text-verdant" },
+              { title: "Audit Trail", desc: "Every agent decision — allocation, rebalance, protection — recorded on-chain and traceable.", icon: <Eye size={24} />, color: "text-signal" },
+              { title: "Custodian Verification", desc: "Regulated custodians verify physical asset ownership on a regular basis.", icon: <Lock size={24} />, color: "text-aurum" },
             ].map((item, i) => (
               <FadeInWhenVisible key={item.title} delay={i * 0.1}>
                 <GlassCard hover className="text-center">
@@ -180,23 +170,53 @@ export default function ProtocolPage() {
           </div>
         </PageSection>
 
+        {/* Architecture */}
+        <PageSection>
+          <FadeInWhenVisible className="text-center mb-16">
+            <SectionLabel>System Architecture</SectionLabel>
+            <h2 className="text-display-md text-bone">
+              Layered{" "}
+              <span className="text-gradient-aurum">design</span>
+            </h2>
+          </FadeInWhenVisible>
+
+          <div className="grid md:grid-cols-5 gap-4">
+            {[
+              { layer: "L1", title: "Client", desc: "Web App & Agent Console", icon: "🖥" },
+              { layer: "L2", title: "API / BFF", desc: "Auth, Indexer, GraphQL", icon: "🔌" },
+              { layer: "L3", title: "Agent Layer", desc: "Steward Engine", icon: "🧠" },
+              { layer: "L4", title: "Smart Contracts", desc: "Vault, Token, Governance", icon: "📜" },
+              { layer: "L5", title: "RWA Bridge", desc: "Oracles & Custodians", icon: "🌉" },
+            ].map((item, i) => (
+              <FadeInWhenVisible key={item.layer} delay={i * 0.1}>
+                <GlassCard hover className="text-center">
+                  <div className="text-mono text-aurum mb-2">{item.layer}</div>
+                  <div className="text-xl mb-2">{item.icon}</div>
+                  <h3 className="text-heading-3 text-bone mb-1">{item.title}</h3>
+                  <p className="text-body-sm">{item.desc}</p>
+                </GlassCard>
+              </FadeInWhenVisible>
+            ))}
+          </div>
+        </PageSection>
+
         {/* CTA */}
         <section id="cta" className="section-normal">
           <div className="container-auren text-center">
             <FadeInWhenVisible>
               <h2 className="text-display-md text-bone mb-4">
-                Siap mulai dengan AUREN?
+                Ready to start with AUREN?
               </h2>
               <p className="text-body-lg max-w-xl mx-auto mb-8">
-                Buka vault, deposit aset, dan biarkan Stewards bekerja.
+                Open a vault, deposit assets, and let Stewards work.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <GlowButton size="lg" href="#">
-                  Buka Vault
+                <GlowButton size="lg" href="/dashboard">
+                  Open Vault
                   <ArrowRight size={18} />
                 </GlowButton>
                 <OutlineButton href="/docs">
-                  Dokumentasi
+                  Documentation
                 </OutlineButton>
               </div>
             </FadeInWhenVisible>

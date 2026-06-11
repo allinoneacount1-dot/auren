@@ -23,12 +23,14 @@ export function GlowButton({
   href,
   size = "md",
   className = "",
+  disabled = false,
 }: {
   children: ReactNode;
   onClick?: () => void;
   href?: string;
   size?: "sm" | "md" | "lg";
   className?: string;
+  disabled?: boolean;
 }) {
   const sizeClasses = {
     sm: "px-5 py-2.5 text-sm",
@@ -45,6 +47,7 @@ export function GlowButton({
     hover:bg-[#D4B05A]
     active:scale-[0.98]
     transition-all duration-200
+    ${disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : ""}
     ${sizeClasses[size]}
     ${className}
   `;
@@ -70,11 +73,13 @@ export function OutlineButton({
   onClick,
   href,
   className = "",
+  disabled = false,
 }: {
   children: ReactNode;
   onClick?: () => void;
   href?: string;
   className?: string;
+  disabled?: boolean;
 }) {
   const baseClasses = `
     inline-flex items-center justify-center gap-2
@@ -84,6 +89,7 @@ export function OutlineButton({
     hover:border-aurum hover:text-aurum
     active:scale-[0.98]
     transition-all duration-200
+    ${disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : ""}
     ${className}
   `;
 

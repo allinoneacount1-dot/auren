@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Activity, Shield, Scale, Search, Check, Zap, Clock, TrendingUp } from "lucide-react";
+import { ArrowRight, Shield, Search, Check, Zap } from "lucide-react";
 import { Navbar, Footer } from "@/components/layout";
 import { SectionLabel, GlowButton, OutlineButton, GlassCard, PageSection, AgentLogStream } from "@/components/ui";
 
@@ -22,7 +22,7 @@ const agents = [
     role: "Capital Deployment",
     icon: "🎯",
     status: "active" as const,
-    description: "Menganalisis yield, likuiditas, dan korelasi aset untuk menentukan alokasi optimal. Beroperasi dalam risk limits yang ditetapkan kontrak.",
+    description: "Analyzes yield, liquidity, and asset correlation to determine optimal allocation. Operates within risk limits set by contract.",
     responsibilities: [
       "Yield analysis across RWA classes",
       "Liquidity assessment before deployment",
@@ -40,7 +40,7 @@ const agents = [
     role: "Threat Detection",
     icon: "🛡",
     status: "monitoring" as const,
-    description: "Memantau drawdown, eksposur, dan anomali pasar secara real-time. Memicu proteksi otomatis saat threshold terlampaui.",
+    description: "Monitors drawdown, exposure, and market anomalies in real-time. Triggers automatic protection when thresholds are breached.",
     responsibilities: [
       "Real-time drawdown monitoring",
       "Exposure limit enforcement",
@@ -58,7 +58,7 @@ const agents = [
     role: "Portfolio Maintenance",
     icon: "⚖",
     status: "executing" as const,
-    description: "Menjaga alokasi tetap on-target. Auto-rebalance saat drift melebihi threshold, dengan optimasi biaya gas dan slippage.",
+    description: "Keeps allocation on-target. Auto-rebalances when drift exceeds threshold, with gas and slippage optimization.",
     responsibilities: [
       "Drift detection (threshold: 0.5%)",
       "Slippage-optimized execution",
@@ -76,7 +76,7 @@ const agents = [
     role: "Verification & Compliance",
     icon: "🔎",
     status: "active" as const,
-    description: "Memverifikasi proof-of-reserve, mengeksekusi audit on-chain, dan mencatat jejak keputusan untuk transparansi publik.",
+    description: "Verifies proof-of-reserve, executes on-chain audits, and records decision trails for public transparency.",
     responsibilities: [
       "Proof-of-reserve verification",
       "On-chain audit execution",
@@ -101,26 +101,24 @@ export default function AgentsPage() {
             <FadeInWhenVisible>
               <SectionLabel>The Stewards</SectionLabel>
               <h1 className="text-display-xl text-bone mb-6">
-                Agen yang{" "}
-                <span className="text-gradient-signal">menjaga</span>
+                Agents that{" "}
+                <span className="text-gradient-signal">guard</span>
               </h1>
               <p className="text-body-lg max-w-2xl">
-                Empat agen AI otonom — masing-masing dengan spesialisasi — bekerja
-                bersama mengelola portofolio AUREN 24/7. Setiap keputusan tercatat
-                on-chain.
+                Four autonomous AI agents — each with a specialization — work
+                together to manage AUREN portfolios 24/7. Every decision is
+                recorded on-chain.
               </p>
             </FadeInWhenVisible>
           </div>
         </section>
 
-        {/* Agent Cards */}
         <PageSection className="bg-surface-0/30">
           <div className="space-y-6">
             {agents.map((agent, i) => (
               <FadeInWhenVisible key={agent.name} delay={i * 0.1}>
                 <GlassCard>
                   <div className="grid lg:grid-cols-12 gap-8">
-                    {/* Left: Info */}
                     <div className="lg:col-span-5">
                       <div className="flex items-start gap-4 mb-4">
                         <div className="w-14 h-14 rounded-xl bg-surface-3 flex items-center justify-center text-2xl shrink-0">
@@ -151,7 +149,6 @@ export default function AgentsPage() {
                       </ul>
                     </div>
 
-                    {/* Right: Stats + Live Log */}
                     <div className="lg:col-span-7">
                       <div className="grid grid-cols-3 gap-4 mb-6">
                         {agent.stats.map((stat) => (
@@ -180,25 +177,24 @@ export default function AgentsPage() {
           </div>
         </PageSection>
 
-        {/* Security Model */}
         <PageSection>
           <FadeInWhenVisible className="text-center mb-16">
             <SectionLabel>Security Model</SectionLabel>
             <h2 className="text-display-md text-bone mb-4">
-              Otonomi tanpa{" "}
-              <span className="text-gradient-aurum">kepercayaan buta</span>
+              Autonomy without{" "}
+              <span className="text-gradient-aurum">blind trust</span>
             </h2>
             <p className="text-body-lg max-w-2xl mx-auto">
-              Agen mengusulkan. Kontrak menegakkan. Tidak ada agen yang bisa
-              melampaui batas yang ditetapkan.
+              Agents propose. Contracts enforce. No agent can exceed the limits
+              that are set.
             </p>
           </FadeInWhenVisible>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: "Agent Proposes", desc: "Stewards menganalisis dan mengusulkan aksi — alokasi, rebalance, proteksi.", icon: <Zap size={24} />, color: "text-signal" },
-              { title: "Contract Enforces", desc: "Smart contract memverifikasi proposal terhadap risk limits yang di-hardcode.", icon: <Shield size={24} />, color: "text-aurum" },
-              { title: "Trail Recorded", desc: "Setiap keputusan tercatat on-chain — dapat diaudit siapa saja, kapan saja.", icon: <Search size={24} />, color: "text-verdant" },
+              { title: "Agent Proposes", desc: "Stewards analyze and propose actions — allocation, rebalance, protection.", icon: <Zap size={24} />, color: "text-signal" },
+              { title: "Contract Enforces", desc: "Smart contract verifies proposals against hard-coded risk limits.", icon: <Shield size={24} />, color: "text-aurum" },
+              { title: "Trail Recorded", desc: "Every decision is recorded on-chain — auditable by anyone, anytime.", icon: <Search size={24} />, color: "text-verdant" },
             ].map((item, i) => (
               <FadeInWhenVisible key={item.title} delay={i * 0.1}>
                 <GlassCard hover className="text-center">
@@ -217,19 +213,19 @@ export default function AgentsPage() {
           <div className="container-auren text-center">
             <FadeInWhenVisible>
               <h2 className="text-display-md text-bone mb-4">
-                Lihat Stewards bekerja
+                Watch Stewards at work
               </h2>
               <p className="text-body-lg max-w-xl mx-auto mb-8">
-                Buka vault dan saksikan agen-agen ini mengelola portofolio
-                secara real-time.
+                Open a vault and watch these agents manage the portfolio in
+                real-time.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <GlowButton size="lg" href="#">
-                  Buka Vault
+                <GlowButton size="lg" href="/dashboard">
+                  Open Vault
                   <ArrowRight size={18} />
                 </GlowButton>
                 <OutlineButton href="/docs">
-                  Dokumentasi Teknis
+                  Technical Docs
                 </OutlineButton>
               </div>
             </FadeInWhenVisible>

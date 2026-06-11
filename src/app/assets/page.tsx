@@ -35,12 +35,12 @@ export default function AssetsPage() {
             <FadeInWhenVisible>
               <SectionLabel>Assets</SectionLabel>
               <h1 className="text-display-xl text-bone mb-6">
-                Kelas aset{" "}
-                <span className="text-gradient-aurum">RWA</span>
+                RWA{" "}
+                <span className="text-gradient-aurum">Asset Classes</span>
               </h1>
               <p className="text-body-lg max-w-2xl">
-                Aset dunia nyata yang ditokenisasi dan dikelola oleh Stewards.
-                Setiap kelas punya profil yield, risiko, dan korelasi yang berbeda.
+                Real-world assets that are tokenized and managed by Stewards.
+                Each class has a distinct yield, risk, and correlation profile.
               </p>
             </FadeInWhenVisible>
           </div>
@@ -57,19 +57,19 @@ export default function AssetsPage() {
         </PageSection>
 
         <PageSection>
-          <FadeInWhenVisible className="text-center">
+          <FadeInWhenVisible className="text-center mb-16">
             <SectionLabel>Risk Framework</SectionLabel>
             <h2 className="text-display-md text-bone mb-12">
-              Setiap aset melalui{" "}
-              <span className="text-gradient-signal">saringan ketat</span>
+              Every asset passes through a{" "}
+              <span className="text-gradient-signal">strict filter</span>
             </h2>
           </FadeInWhenVisible>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: "Due Diligence", desc: "Analisis mendalam sebelum aset masuk whitelist — legal, finansial, operasional.", icon: <Shield size={24} />, color: "text-verdant" },
-              { title: "Risk Scoring", desc: "Setiap aset dinilai berdasarkan volatilitas, likuiditas, korelasi, dan counterparty risk.", icon: <AlertTriangle size={24} />, color: "text-ember" },
-              { title: "Continuous Monitoring", desc: "Stewards memantau setiap aset 24/7. Auto-proteksi saat threshold terlampaui.", icon: <TrendingUp size={24} />, color: "text-signal" },
+              { title: "Due Diligence", desc: "Deep analysis before an asset is whitelisted — legal, financial, operational.", icon: <Shield size={24} />, color: "text-verdant" },
+              { title: "Risk Scoring", desc: "Each asset is rated based on volatility, liquidity, correlation, and counterparty risk.", icon: <AlertTriangle size={24} />, color: "text-ember" },
+              { title: "Continuous Monitoring", desc: "Stewards monitor every asset 24/7. Auto-protection when thresholds are breached.", icon: <TrendingUp size={24} />, color: "text-signal" },
             ].map((item, i) => (
               <FadeInWhenVisible key={item.title} delay={i * 0.1}>
                 <GlassCard hover className="text-center">
@@ -88,19 +88,19 @@ export default function AssetsPage() {
           <div className="container-auren text-center">
             <FadeInWhenVisible>
               <h2 className="text-display-md text-bone mb-4">
-                Ingin menambahkan aset baru?
+                Want to propose a new asset?
               </h2>
               <p className="text-body-lg max-w-xl mx-auto mb-8">
-                AUREN governance memungkinkan pemegang token $AUREN untuk
-                mengusulkan dan memilih kelas aset baru.
+                AUREN governance allows $AUREN token holders to propose and vote
+                on new asset classes.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <GlowButton size="lg" href="/governance">
-                  Lihat Proposal
+                  View Proposals
                   <ArrowRight size={18} />
                 </GlowButton>
                 <OutlineButton href="/docs">
-                  Dokumentasi
+                  Documentation
                   <ExternalLink size={16} />
                 </OutlineButton>
               </div>
