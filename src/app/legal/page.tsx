@@ -7,7 +7,7 @@ export default function LegalPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24">
+      <main className="pt-14">
         <section className="section-normal">
           <div className="container-auren">
             <h1 className="text-display-xl text-bone mb-6">Legal</h1>

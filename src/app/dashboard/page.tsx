@@ -467,7 +467,7 @@ export default function DashboardPage() {
     return (
       <>
         <Navbar />
-        <main className="pt-24">
+        <main className="pt-14">
           <section className="section-loose">
             <div className="container-auren">
               <div className="max-w-lg mx-auto text-center">

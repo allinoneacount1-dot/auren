@@ -95,7 +95,7 @@ export default function AgentsPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24">
+      <main className="pt-14">
         <section className="section-normal">
           <div className="container-auren">
             <FadeInWhenVisible>

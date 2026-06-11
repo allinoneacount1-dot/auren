@@ -38,7 +38,7 @@ export default function CareersPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24">
+      <main className="pt-14">
         <section className="section-normal">
           <div className="container-auren">
             <FadeInWhenVisible>

@@ -225,18 +225,32 @@ body {
 
 /* Section spacing */
 .section-tight {
-  padding-top: 64px;
-  padding-bottom: 64px;
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 
 .section-normal {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.section-loose {
   padding-top: 96px;
   padding-bottom: 96px;
 }
 
-.section-loose {
-  padding-top: 128px;
-  padding-bottom: 128px;
+/* Desktop max-width */
+@media (min-width: 1280px) {
+  .container-auren {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container-auren {
+    max-width: 1440px;
+    padding: 0 64px;
+  }
 }
 
 /* Glass card */

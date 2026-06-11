@@ -18,7 +18,7 @@ import {
 } from "@/components/ui";
 import { Navbar, Footer } from "@/components/layout";
 import { Hero3D } from "@/components/hero-3d";
-import { Skeleton } from "@/components/skeleton";
+import { Skeleton, LiveVaultSkeleton } from "@/components/skeleton";
 
 /* ═══════════════════════════════════════════
    ANIMATION HELPERS
@@ -62,7 +62,7 @@ function HeroSection() {
   }, []);
 
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center">
+    <section className="relative pt-20 pb-12 overflow-hidden min-h-[85vh] flex items-center">
       {/* 3D Scene */}
       <div className="absolute inset-0 z-0 opacity-60">
         <Hero3D />
@@ -74,9 +74,9 @@ function HeroSection() {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-signal/[0.03] rounded-full blur-[100px] z-[1]" />
 
       <div className="container-auren relative z-10">
-        <div className="grid lg:grid-cols-5 gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 items-center">
           {/* Left: Copy */}
-          <div className="lg:col-span-3 space-y-8">
+          <div className="lg:col-span-5 space-y-6">
             <FadeInWhenVisible>
               <SectionLabel>Agentic RWA Protocol</SectionLabel>
             </FadeInWhenVisible>
@@ -93,7 +93,7 @@ function HeroSection() {
             </FadeInWhenVisible>
 
             <FadeInWhenVisible delay={0.2}>
-              <p className="text-body-lg max-w-xl">
+              <p className="text-body-lg max-w-lg">
                 AUREN deploys autonomous AI agents to manage tokenized
                 real-world assets — Treasuries, private credit, real estate
                 — 24/7, on-chain, provable.
@@ -101,7 +101,7 @@ function HeroSection() {
             </FadeInWhenVisible>
 
             <FadeInWhenVisible delay={0.3}>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3">
                 <GlowButton size="lg" href="/dashboard">
                   Open Vault
                   <ArrowRight size={18} />
@@ -115,7 +115,7 @@ function HeroSection() {
 
             {/* Trust badges */}
             <FadeInWhenVisible delay={0.4}>
-              <div className="flex flex-wrap items-center gap-3 pt-4">
+              <div className="flex flex-wrap items-center gap-3 pt-2">
                 <ProofBadge label="Proof-of-Reserve Live" />
                 <ProofBadge label="ERC-4626 Vault" />
                 <span className="text-mono-sm text-muted">
@@ -126,17 +126,17 @@ function HeroSection() {
           </div>
 
           {/* Right: Live Vault Card */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-7">
             <FadeInWhenVisible delay={0.2}>
               <AnimatePresence mode="wait">
                 {!loaded ? (
-                  <Skeleton key="vault-skeleton" className="h-[480px] rounded-2xl" />
+                  <LiveVaultSkeleton key="skeleton" />
                 ) : (
                   <motion.div
-                    key="vault-card"
-                    initial={{ opacity: 0, y: 20 }}
+                    key="vault"
+                    initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
                   >
                     <LiveVaultCard />
                   </motion.div>
@@ -181,7 +181,7 @@ function StatMarquee() {
 
 function ProblemSection() {
   return (
-    <PageSection id="problem" className="noise-texture">
+    <PageSection id="problem" className="noise-texture section-tight">
       <div className="grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-5">
           <FadeInWhenVisible>
@@ -306,7 +306,7 @@ function ThesisSection() {
   ];
 
   return (
-    <PageSection id="thesis" className="bg-surface-0/30 noise-texture">
+    <PageSection id="thesis" className="bg-surface-0/30 noise-texture section-tight">
       <FadeInWhenVisible className="text-center mb-16">
         <SectionLabel>AUREN Architecture</SectionLabel>
         <h2 className="text-display-md text-bone mb-4">
@@ -394,7 +394,7 @@ function StewardsSection() {
   ];
 
   return (
-    <PageSection id="how-it-works">
+    <PageSection id="how-it-works" className="section-tight">
       <div className="grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-4">
           <FadeInWhenVisible>
@@ -492,7 +492,7 @@ function AssetsSection() {
   ];
 
   return (
-    <PageSection id="assets" className="bg-surface-0/30">
+    <PageSection id="assets" className="bg-surface-0/30 section-tight">
       <FadeInWhenVisible className="text-center mb-16">
         <SectionLabel>Asset Classes</SectionLabel>
         <h2 className="text-display-md text-bone mb-4">
@@ -529,7 +529,7 @@ function AssetsSection() {
 
 function ManifestoSection() {
   return (
-    <section className="relative py-24 overflow-hidden noise-texture scanline-effect">
+    <section className="relative py-20 overflow-hidden noise-texture scanline-effect">
       <div className="absolute inset-0 bg-surface-0" />
       <div className="absolute inset-0 grid-bg opacity-30" />
 
@@ -559,7 +559,7 @@ function ManifestoSection() {
 
 function CTASection() {
   return (
-    <section id="cta" className="section-loose">
+    <section id="cta" className="section-normal">
       <div className="container-auren">
         <FadeInWhenVisible>
           <div className="glass-card-elevated p-12 md:p-16 text-center relative overflow-hidden">

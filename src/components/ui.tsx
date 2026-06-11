@@ -288,14 +288,14 @@ export function LiveVaultCard() {
   }, []);
 
   return (
-    <div className="glass-card-elevated p-6 space-y-5">
+    <div className="glass-card-elevated p-5 space-y-4">
       <div className="flex items-center justify-between">
         <span className="text-label text-signal">● LIVE VAULT</span>
         <span className="text-mono-sm text-muted">Updated 2s ago</span>
       </div>
 
       <div>
-        <div className="text-mono-sm text-clay mb-1">Net Asset Value</div>
+        <div className="text-mono-sm text-clay mb-0.5">Net Asset Value</div>
         <div className="flex items-baseline gap-2">
           <span className="text-display-md text-bone font-mono tabular-nums">
             ${nav.toFixed(2)}M
@@ -304,7 +304,7 @@ export function LiveVaultCard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-3">
         {[
           { label: "APY", value: `${apy.toFixed(2)}%` },
           { label: "Assets", value: "4" },
@@ -317,7 +317,7 @@ export function LiveVaultCard() {
         ))}
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-1.5">
         <div className="text-mono-sm text-muted">Allocation</div>
         {[
           { name: "Treasury", pct: 35, color: "bg-aurum" },
@@ -325,9 +325,9 @@ export function LiveVaultCard() {
           { name: "Real Estate", pct: 22, color: "bg-verdant" },
           { name: "Commodities", pct: 15, color: "bg-ember" },
         ].map((a) => (
-          <div key={a.name} className="flex items-center gap-3">
-            <div className="w-24 text-mono-sm text-clay">{a.name}</div>
-            <div className="flex-1 h-1.5 bg-surface-3 rounded-full overflow-hidden">
+          <div key={a.name} className="flex items-center gap-2">
+            <div className="w-20 text-mono-sm text-clay">{a.name}</div>
+            <div className="flex-1 h-1 bg-surface-3 rounded-full overflow-hidden">
               <motion.div
                 className={`h-full ${a.color} rounded-full`}
                 initial={{ width: 0 }}
@@ -340,8 +340,8 @@ export function LiveVaultCard() {
         ))}
       </div>
 
-      <div className="border-t border-border-primary pt-4">
-        <div className="text-mono-sm text-muted mb-2">Agent Activity</div>
+      <div className="border-t border-border-primary pt-3">
+        <div className="text-mono-sm text-muted mb-1.5">Agent Activity</div>
         <AgentLogStream />
       </div>
     </div>

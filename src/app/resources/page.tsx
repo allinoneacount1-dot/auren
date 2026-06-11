@@ -117,7 +117,7 @@ export default function ResourcesPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24">
+      <main className="pt-14">
         {/* Hero */}
         <section className="section-normal">
           <div className="container-auren">

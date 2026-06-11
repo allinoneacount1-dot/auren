@@ -11,7 +11,9 @@ const navLinks = [
   { label: "Assets", href: "/assets" },
   { label: "Trust", href: "/trust" },
   { label: "Agents", href: "/agents" },
+  { label: "Governance", href: "/governance" },
   { label: "Docs", href: "/docs" },
+  { label: "About", href: "/about" },
 ];
 
 export function Navbar() {
@@ -20,7 +22,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border-primary bg-obsidian/80 backdrop-blur-xl">
       <div className="container-auren">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-aurum flex items-center justify-center">
@@ -101,66 +103,82 @@ export function Footer() {
     <footer className="border-t border-border-primary bg-surface-0">
       <div className="container-auren">
         {/* Main footer */}
-        <div className="py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="py-8 grid grid-cols-2 md:grid-cols-5 gap-6">
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-7 h-7 rounded-lg bg-aurum flex items-center justify-center">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-6 h-6 rounded-md bg-aurum flex items-center justify-center">
                 <span className="text-obsidian font-bold text-xs">A</span>
               </div>
               <span className="text-heading-3 text-bone">AUREN</span>
             </div>
-            <p className="text-body-sm mb-4">
+            <p className="text-body-sm mb-3">
               Autonomous capital for real-world assets.
             </p>
-            <div className="flex items-center gap-2">
-              <ProtocolStatusBadge />
-            </div>
+            <ProtocolStatusBadge />
           </div>
 
           <div>
-            <h4 className="text-label text-muted mb-4">Protocol</h4>
-            <ul className="space-y-2">
+            <h4 className="text-label text-muted mb-3">Protocol</h4>
+            <ul className="space-y-1.5">
               {[
                 { label: "How it Works", href: "/protocol" },
                 { label: "The Vault", href: "/protocol#vault" },
                 { label: "Proof Layer", href: "/trust" },
+                { label: "Agents", href: "/agents" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} className="text-body-sm hover:text-aurum transition-colors">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-label text-muted mb-3">Assets</h4>
+            <ul className="space-y-1.5">
+              {[
+                { label: "Treasuries", href: "/assets" },
+                { label: "Private Credit", href: "/assets" },
+                { label: "Real Estate", href: "/assets" },
+                { label: "Commodities", href: "/assets" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} className="text-body-sm hover:text-aurum transition-colors">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-label text-muted mb-3">Community</h4>
+            <ul className="space-y-1.5">
+              {[
                 { label: "Governance", href: "/governance" },
-              ].map((item) => (
-                <li key={item.label}>
-                  <a href={item.href} className="text-body-sm hover:text-aurum transition-colors">
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-label text-muted mb-4">Assets</h4>
-            <ul className="space-y-2">
-              {[
-                { label: "Treasuries", href: "/assets#treasuries" },
-                { label: "Private Credit", href: "/assets#credit" },
-                { label: "Real Estate", href: "/assets#real-estate" },
-                { label: "Commodities", href: "/assets#commodities" },
-              ].map((item) => (
-                <li key={item.label}>
-                  <a href={item.href} className="text-body-sm hover:text-aurum transition-colors">
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-label text-muted mb-4">Company</h4>
-            <ul className="space-y-2">
-              {[
-                { label: "Manifesto", href: "/about" },
-                { label: "About", href: "/about" },
+                { label: "Docs", href: "/docs" },
+                { label: "Resources", href: "/resources" },
                 { label: "Careers", href: "/careers" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} className="text-body-sm hover:text-aurum transition-colors">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-label text-muted mb-3">Company</h4>
+            <ul className="space-y-1.5">
+              {[
+                { label: "About", href: "/about" },
                 { label: "Legal", href: "/legal" },
+                { label: "Twitter", href: "#" },
+                { label: "Discord", href: "#" },
               ].map((item) => (
                 <li key={item.label}>
                   <a href={item.href} className="text-body-sm hover:text-aurum transition-colors">
@@ -173,11 +191,11 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="py-6 border-t border-border-primary flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="py-4 border-t border-border-primary flex flex-col md:flex-row items-center justify-between gap-2">
           <span className="text-mono-sm text-muted">
             © 2026 AUREN Protocol. All rights reserved.
           </span>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {["Twitter", "GitHub", "Discord"].map((s) => (
               <a
                 key={s}
