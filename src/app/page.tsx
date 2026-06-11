@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { ArrowRight, Shield, Eye, Zap, ChevronRight, ExternalLink } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { ArrowRight, Shield, Eye, Zap, ChevronRight, ExternalLink, TrendingUp, TrendingDown } from "lucide-react";
 import {
   SectionLabel,
   GlowButton,
@@ -17,6 +17,8 @@ import {
   PageSection,
 } from "@/components/ui";
 import { Navbar, Footer } from "@/components/layout";
+import { Hero3D } from "@/components/hero-3d";
+import { Skeleton } from "@/components/skeleton";
 
 /* ═══════════════════════════════════════════
    ANIMATION HELPERS
@@ -52,15 +54,27 @@ function FadeInWhenVisible({
    ═══════════════════════════════════════════ */
 
 function HeroSection() {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 800);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
+    <section className="relative pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center">
+      {/* 3D Scene */}
+      <div className="absolute inset-0 z-0 opacity-60">
+        <Hero3D />
+      </div>
+
       {/* Background effects */}
-      <div className="absolute inset-0 grid-bg opacity-50" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-aurum/[0.02] rounded-full blur-[120px]" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-signal/[0.02] rounded-full blur-[100px]" />
+      <div className="absolute inset-0 grid-bg opacity-30 z-[1]" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-aurum/[0.03] rounded-full blur-[120px] z-[1]" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-signal/[0.03] rounded-full blur-[100px] z-[1]" />
 
       <div className="container-auren relative z-10">
-        <div className="grid lg:grid-cols-5 gap-12 items-start">
+        <div className="grid lg:grid-cols-5 gap-12 items-center">
           {/* Left: Copy */}
           <div className="lg:col-span-3 space-y-8">
             <FadeInWhenVisible>
@@ -81,8 +95,8 @@ function HeroSection() {
             <FadeInWhenVisible delay={0.2}>
               <p className="text-body-lg max-w-xl">
                 AUREN deploys autonomous AI agents to manage tokenized
-                real-world assets — Treasuries, private credit, real estate —
-                24/7, on-chain, provable.
+                real-world assets — Treasuries, private credit, real estate
+                — 24/7, on-chain, provable.
               </p>
             </FadeInWhenVisible>
 
@@ -114,7 +128,20 @@ function HeroSection() {
           {/* Right: Live Vault Card */}
           <div className="lg:col-span-2">
             <FadeInWhenVisible delay={0.2}>
-              <LiveVaultCard />
+              <AnimatePresence mode="wait">
+                {!loaded ? (
+                  <Skeleton key="vault-skeleton" className="h-[480px] rounded-2xl" />
+                ) : (
+                  <motion.div
+                    key="vault-card"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <LiveVaultCard />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </FadeInWhenVisible>
           </div>
         </div>
@@ -154,7 +181,7 @@ function StatMarquee() {
 
 function ProblemSection() {
   return (
-    <PageSection id="problem">
+    <PageSection id="problem" className="noise-texture">
       <div className="grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-5">
           <FadeInWhenVisible>
@@ -279,7 +306,7 @@ function ThesisSection() {
   ];
 
   return (
-    <PageSection id="thesis" className="bg-surface-0/30">
+    <PageSection id="thesis" className="bg-surface-0/30 noise-texture">
       <FadeInWhenVisible className="text-center mb-16">
         <SectionLabel>AUREN Architecture</SectionLabel>
         <h2 className="text-display-md text-bone mb-4">
@@ -502,7 +529,7 @@ function AssetsSection() {
 
 function ManifestoSection() {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-24 overflow-hidden noise-texture scanline-effect">
       <div className="absolute inset-0 bg-surface-0" />
       <div className="absolute inset-0 grid-bg opacity-30" />
 
