@@ -295,7 +295,7 @@ export function LiveVaultCard() {
       </div>
 
       <div>
-        <div className="text-mono-sm text-clay mb-0.5">Net Asset Value</div>
+        <div className="text-mono-sm text-text-secondary mb-0.5">Net Asset Value</div>
         <div className="flex items-baseline gap-2">
           <span className="text-display-md text-bone font-mono tabular-nums">
             ${nav.toFixed(2)}M
