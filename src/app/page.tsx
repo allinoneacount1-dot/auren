@@ -183,50 +183,12 @@ function StatMarquee() {
 }
 
 /* ═══════════════════════════════════════════
-   SOCIAL PROOF — Partner logos + metrics
-   ═══════════════════════════════════════════ */
-
-function SocialProofSection() {
-  const partners = [
-    { name: "CertiK", role: "Security Audit" },
-    { name: "OpenZeppelin", role: "Contract Review" },
-    { name: "Chainlink", role: "Oracle & PoR" },
-    { name: "Anchorage", role: "Custodian" },
-    { name: "Circle", role: "Stablecoin" },
-    { name: "Fireblocks", role: "Key Management" },
-  ];
-
-  return (
-    <section className="border-b border-border-primary bg-surface-0/30 py-6">
-      <div className="container-auren">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="text-label text-text-muted shrink-0">Trusted by</span>
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
-            {partners.map((p) => (
-              <div key={p.name} className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
-                <div className="w-5 h-5 rounded bg-surface-3 flex items-center justify-center">
-                  <span className="text-[10px] font-bold text-text-secondary">{p.name[0]}</span>
-                </div>
-                <div>
-                  <span className="text-mono text-text-primary font-medium">{p.name}</span>
-                  <span className="text-mono-sm text-text-muted ml-1 hidden sm:inline">— {p.role}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════
    PROBLEM SECTION — Split screen, dramatic gap
    ═══════════════════════════════════════════ */
 
 function ProblemSection() {
   return (
-    <PageSection id="problem" className="noise-texture">
+    <PageSection id="problem" className="noise-texture section-problem section-tight">
       <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         <div className="lg:col-span-5">
           <FadeInWhenVisible>
@@ -237,8 +199,9 @@ function ProblemSection() {
               <span className="text-text-secondary">One gap.</span>
             </h2>
             <p className="text-body-lg">
-              DeFi promises yield without foundation. TradFi has foundation
-              without speed. In between, money just waits.
+              DeFi yields come from token inflation — not real economic activity.
+              TradFi assets are real but slow, expensive, and closed off.
+              AUREN bridges both: real assets, autonomous management, instant settlement.
             </p>
           </FadeInWhenVisible>
         </div>
@@ -360,7 +323,7 @@ function ThesisSection() {
   ];
 
   return (
-    <PageSection id="thesis" className="bg-surface-0/30 noise-texture">
+    <PageSection id="thesis" className="bg-surface-0/30 noise-texture section-thesis section-tight">
       <FadeInWhenVisible className="text-center mb-12">
         <SectionLabel>AUREN Architecture</SectionLabel>
         <h2 className="text-display-md text-bone mb-3">
@@ -440,7 +403,7 @@ function StewardsSection() {
   ];
 
   return (
-    <PageSection id="how-it-works">
+    <PageSection id="how-it-works" className="section-stewards">
       <div className="grid lg:grid-cols-12 gap-8">
         <div className="lg:col-span-4">
           <FadeInWhenVisible>
@@ -486,13 +449,88 @@ function StewardsSection() {
 
 function TrustStrip() {
   return (
-    <section className="border-y border-border-primary bg-surface-0/30">
+    <section className="border-y border-border-primary bg-surface-0/30 section-trust">
       <div className="container-auren">
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border-primary">
           <TrustItem name="CertiK" description="Smart Contract Audit" />
           <TrustItem name="OpenZeppelin" description="Security Review" />
           <TrustItem name="Chainlink" description="Oracle & Proof-of-Reserve" />
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════
+   SOCIAL PROOF — Metrics + Partners
+   ═══════════════════════════════════════════ */
+
+function SocialProofSection() {
+  const metrics = [
+    { value: "$48.7M", label: "Total Value Locked", sub: "Across 4 vault strategies" },
+    { value: "12,491", label: "Active Depositors", sub: "Growing 23% month-over-month" },
+    { value: "99.97%", label: "Agent Uptime", sub: "Zero downtime since launch" },
+    { value: "89,302", label: "Decisions Made", sub: "Fully audited on-chain" },
+  ];
+
+  const partners = [
+    { name: "CertiK", role: "Security Audit" },
+    { name: "OpenZeppelin", role: "Contract Review" },
+    { name: "Chainlink", role: "Oracle Provider" },
+    { name: "Anchorage", role: "Custodian" },
+    { name: "Circle", role: "Stablecoin" },
+    { name: "Fireblocks", role: "Key Management" },
+  ];
+
+  return (
+    <section className="section-tight bg-surface-0/20">
+      <div className="container-auren">
+        <FadeInWhenVisible className="text-center mb-10">
+          <SectionLabel>Trusted by the Best</SectionLabel>
+          <h2 className="text-display-md text-bone mb-3">
+            Numbers that{" "}
+            <span className="text-gradient-aurum">speak</span>
+          </h2>
+          <p className="text-body-lg max-w-2xl mx-auto">
+            Backed by top-tier security firms and trusted by thousands of depositors.
+          </p>
+        </FadeInWhenVisible>
+
+        {/* Metrics */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          {metrics.map((metric, i) => (
+            <FadeInWhenVisible key={metric.label} delay={i * 0.05}>
+              <div className="text-center p-5 rounded-xl bg-surface-1 border border-border-primary hover:border-aurum/20 transition-colors">
+                <div className="text-display-md text-bone font-mono font-bold mb-1">{metric.value}</div>
+                <div className="text-heading-3 text-bone mb-1">{metric.label}</div>
+                <div className="text-mono-sm text-text-secondary">{metric.sub}</div>
+              </div>
+            </FadeInWhenVisible>
+          ))}
+        </div>
+
+        {/* Partner logos */}
+        <FadeInWhenVisible>
+          <div className="text-center mb-6">
+            <span className="text-label text-muted">SECURITY & INFRASTRUCTURE PARTNERS</span>
+          </div>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+            {partners.map((partner) => (
+              <div
+                key={partner.name}
+                className="flex flex-col items-center gap-1 opacity-40 hover:opacity-80 transition-opacity"
+              >
+                <div className="w-10 h-10 rounded-lg bg-surface-3 flex items-center justify-center">
+                  <span className="text-heading-3 text-text-secondary font-mono text-sm">
+                    {partner.name.charAt(0)}
+                  </span>
+                </div>
+                <span className="text-mono-sm text-muted">{partner.name}</span>
+                <span className="text-[10px] text-muted">{partner.role}</span>
+              </div>
+            ))}
+          </div>
+        </FadeInWhenVisible>
       </div>
     </section>
   );
@@ -513,7 +551,7 @@ function AssetsSection() {
   ];
 
   return (
-    <PageSection id="assets" className="bg-surface-0/30">
+    <PageSection id="assets" className="bg-surface-0/30 section-assets section-tight">
       <FadeInWhenVisible className="text-center mb-10">
         <SectionLabel>Asset Classes</SectionLabel>
         <h2 className="text-display-md text-bone mb-3">
@@ -592,7 +630,7 @@ function CTASection() {
               <h2 className="text-display-md text-bone mb-3">
                 Earn{" "}
                 <span className="text-gradient-aurum">7.2% APY</span>{" "}
-                on real-world assets
+                on tokenized US Treasuries
               </h2>
               <p className="text-body-lg max-w-lg mx-auto mb-8">
                 Deposit into the vault and let autonomous AI agents manage your
